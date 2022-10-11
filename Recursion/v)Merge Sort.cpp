@@ -50,9 +50,6 @@ void merge(int input[],int si,int ei,int temp)
         input[z]=ans[p];
         p++;
     }
-    for(int i=0;i<ei-si+1;i++)
-    cout<<ans[i]<<" ";
-    cout<<"\n";
 }
 void mergesorthelp(int input[],int si,int ei)
 {
@@ -61,7 +58,6 @@ void mergesorthelp(int input[],int si,int ei)
    int mid=(si+ei)/2;
     mergesorthelp(input,si,mid);
     mergesorthelp(input,mid+1,ei);
-    cout<<si<<" "<<ei<<" "<<mid+1<<"\n";
     merge(input,si,ei,mid+1);
 }
 
