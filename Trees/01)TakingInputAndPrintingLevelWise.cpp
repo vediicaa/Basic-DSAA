@@ -18,7 +18,6 @@ class TreeNode {
     }
 };
 
-#include "solution.h"
 
 TreeNode<int>* takeInputLevelWise() {
     int rootData;
@@ -44,7 +43,26 @@ TreeNode<int>* takeInputLevelWise() {
 
     return root;
 }
-
+void printLevelWise(TreeNode<int> *root) 
+{
+   
+     queue<TreeNode<int>*> pendingnode;
+     pendingnode.push(root);
+     while(pendingnode.size()!=0)
+     {
+       TreeNode<int> *front = pendingnode.front();
+       pendingnode.pop();
+       cout<<front->data<<":";
+       for (int i = 0; i < front->children.size(); i++) {
+           if(i!=front->children.size()-1)
+         cout << front->children[i]->data << ",";
+         else
+           cout << front->children[i]->data;
+         pendingnode.push(front->children[i]);
+       }
+       cout<<"\n";
+     }
+}
 int main() {
     TreeNode<int>* root = takeInputLevelWise();
     printLevelWise(root);
